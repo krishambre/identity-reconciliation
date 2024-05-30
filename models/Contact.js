@@ -16,7 +16,7 @@ const Contact = db.define('contact', {
     linkedId: {
         type: Sequelize.INTEGER
     },
-    linkedPrecedence: {
+    linkPrecedence: {
         type: Sequelize.BOOLEAN
     },
     deletedAt: {
@@ -30,7 +30,8 @@ const Contact = db.define('contact', {
         {
             fields: ['email']
         }
-    ]
-}, {
+    ],
     schema: 'Contact'
 });
+
+module.exports = Contact;
