@@ -3,7 +3,9 @@ const db = require('../config/database');
 
 const Contact = db.define('contact', {
     id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
     },
     phoneNumber: {
         type: Sequelize.STRING
@@ -14,13 +16,21 @@ const Contact = db.define('contact', {
     linkedId: {
         type: Sequelize.INTEGER
     },
-    id: {
-        type: Sequelize.INTEGER
-    },
     linkedPrecedence: {
         type: Sequelize.BOOLEAN
     },
     deletedAt: {
         type: Sequelize.DATE
     }
+}, {
+    indexes: [
+        {
+            fields: ['phoneNumber']
+        },
+        {
+            fields: ['email']
+        }
+    ]
+}, {
+    schema: 'Contact'
 });
