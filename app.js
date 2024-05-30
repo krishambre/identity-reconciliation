@@ -3,20 +3,21 @@
 const express = require('express'); 
 const http = require('http');
 
+const db = require('./config/database');
+
+db.authenticate()
+  .then(() => console.log('Database connected.....'))
+  .catch(err => console.log('Error' + err));
+
 var settings = {
     port: 3000
 };
 
-const app = express(); 
-var apiRouter = express.Router();
-app.use('/bitespeed', apiRouter);
+const app = express();
+
+app.use('/identify', require('./routes/identify'));
 
 var server = http.createServer(app);
-
-apiRouter.get('/identify', (req, res)=>{
-    res.status(200); 
-    res.send("Welcome to root URL of Server"); 
-});
 
 server.on('uncaughtException', (err, origin) => {
     if (err.name === 'SyntaxError') {
@@ -40,4 +41,5 @@ server.on('uncaughtException', (err, origin) => {
 
 server.listen(settings.port, function(){
     console.log('Server started at port ' + settings.port);
+    //console.log(app)
 });
