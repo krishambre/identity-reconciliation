@@ -26,11 +26,12 @@ Primary contacts can also turn into secondary contacts if we get a request with 
 
 ## Installation
 To install and set up the project, use the following command: `npm install`
+
 To run the project use : `npm run start`
 
 
 ## Usage
-The app is hosted at https://identity-reconciliation-ommc.onrender.com/identify . This is a POST endpoint and can be used along with the following repsonse body 
+The app is hosted at https://identity-reconciliation-ommc.onrender.com/identify . This is a POST endpoint and can be used along with the following request body 
 ```
 {
 	"email"?: string,
