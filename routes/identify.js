@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Op } = require('sequelize');
-const Contact = require('../models/contact1');
+const Contact = require('../models/contact');
 
 function findOrCreateContact(email, phoneNumber) {
     return Contact.findOne({
