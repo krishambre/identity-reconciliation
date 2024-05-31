@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../config/database');
+const {dbSchema} = require ('../config/config')
 
 const Contact = db.define('contact', {
     id: {
@@ -31,7 +32,7 @@ const Contact = db.define('contact', {
             fields: ['email']
         }
     ],
-    schema: 'Contact'
+    schema: dbSchema
 });
 
 module.exports = Contact;
