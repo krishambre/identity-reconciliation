@@ -1,11 +1,11 @@
-# Project Name
+# Identity Reconciliation
 
 ## Description
 This is an application that links different orders made with different contact information to the same person. We keep a track of the collected contact information in a relational database table named `Contact`. 
 
 ```
 {
-	id                   Int                   
+    id                   Int                   
     phoneNumber          String?
     email                String?
     linkedId             Int? // the ID of another Contact linked to this one
@@ -32,21 +32,21 @@ To run the project use : `npm run start`
 ## Usage
 The app is hosted at https://identity-reconciliation-ommc.onrender.com/identify . This is a POST endpoint and can be used along with the following repsonse body 
 ```
-    {
-	    "email"?: string,
-	    "phoneNumber"?: number
-    }
+{
+	"email"?: string,
+	"phoneNumber"?: number
+}
 ```
 
 The response format is as follows: 
 ```
-	{
-		"contact":{
-			"primaryContatctId": number,
-			"emails": string[], // first element being email of primary contact 
-			"phoneNumbers": string[], // first element being phoneNumber of primary contact
-			"secondaryContactIds": number[] // Array of all Contact IDs that are "secondary" to the primary contact
-		}
+{
+	"contact":{
+		"primaryContatctId": number,
+		"emails": string[], // first element being email of primary contact 
+		"phoneNumbers": string[], // first element being phoneNumber of primary contact
+		"secondaryContactIds": number[] // Array of all Contact IDs that are "secondary" to the primary contact
 	}
+}
 ```
 
